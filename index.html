@@ -5,14 +5,14 @@ layout: null
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Quantum Finance — Homepage Preview</title>
+<title>How Quantum Tech Could Predict the Stock Market</title>
 <style>
   :root{
     --bg:#FBFAFF;
     --panel:#F3F1FB;
     --panel-line:#E4E0F5;
-    --text:#3E3B52;
-    --muted:#8D89A8;
+    --text:#1C1A28;
+    --muted:#3E3A52;
     --classical:#FFC3A0;
     --classical-deep:#F2A87E;
     --quantum-a:#C9B6FF;
@@ -27,229 +27,206 @@ layout: null
     font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
   }
-  .mono{font-family:'Courier New', Courier, monospace;}
   .wrap{max-width:980px; margin:0 auto; padding:0 28px;}
 
   .blob{
     position:fixed;
     border-radius:50%;
-    filter:blur(80px);
-    opacity:0.35;
+    filter:blur(90px);
+    opacity:0.25;
     z-index:-1;
     pointer-events:none;
   }
-  .blob1{width:420px; height:420px; background:var(--quantum-a); top:-120px; right:-100px;}
-  .blob2{width:380px; height:380px; background:var(--quantum-b); bottom:10%; left:-140px;}
-  .blob3{width:300px; height:300px; background:var(--classical); top:55%; right:5%; opacity:0.22;}
+  .blob1{width:400px; height:400px; background:var(--quantum-a); top:-120px; right:-100px;}
+  .blob2{width:360px; height:360px; background:var(--quantum-b); bottom:10%; left:-140px;}
 
   .hero{
-    min-height:92vh;
+    min-height:88vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     position:relative;
   }
   .eyebrow{
-    font-size:12.5px;
-    letter-spacing:0.1em;
+    font-size:14px;
+    letter-spacing:0.08em;
     color:var(--muted);
     text-transform:uppercase;
-    margin-bottom:22px;
-    display:flex;
-    align-items:center;
-    gap:10px;
+    margin-bottom:20px;
     font-weight:bold;
   }
-  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:linear-gradient(90deg,var(--quantum-a),var(--quantum-b)); display:inline-block;}
   h1{
     font-weight:700;
-    font-size:clamp(34px, 5.4vw, 64px);
-    line-height:1.15;
-    max-width:800px;
-    color:#2D2A40;
-  }
-  h1 .grad{
-    background:linear-gradient(90deg, #B8A2FF, #8FE3D6);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    font-size:clamp(38px, 5.5vw, 64px);
+    line-height:1.2;
+    max-width:780px;
+    color:#000;
   }
   .sub{
-    margin-top:26px;
-    font-size:18px;
+    margin-top:24px;
+    font-size:22px;
     line-height:1.65;
     color:var(--muted);
-    max-width:540px;
-    font-weight:400;
+    max-width:520px;
   }
   .scroll-cue{
     position:absolute;
-    bottom:36px;
+    bottom:32px;
     left:28px;
-    font-size:11.5px;
+    font-size:16px;
     color:var(--muted);
-    display:flex;
-    align-items:center;
-    gap:10px;
-    letter-spacing:0.06em;
   }
-  .scroll-cue .line{width:28px; height:1px; background:var(--muted); animation:pulse 2.2s infinite;}
-  @keyframes pulse{0%,100%{opacity:0.25} 50%{opacity:0.9}}
 
-  .section{padding:96px 0;}
+  .section{padding:88px 0;}
   .section-label{
-    font-size:11.5px;
-    letter-spacing:0.1em;
+    font-size:16px;
+    letter-spacing:0.08em;
     color:var(--muted);
     text-transform:uppercase;
-    margin-bottom:16px;
+    margin-bottom:14px;
     font-weight:bold;
   }
   h2{
     font-weight:700;
-    font-size:clamp(24px, 3.4vw, 34px);
-    max-width:660px;
+    font-size:clamp(26px, 3.4vw, 36px);
+    max-width:640px;
     line-height:1.3;
-    color:#2D2A40;
+    color:var(--text);
   }
   h3.sub-heading{
     font-weight:700;
-    font-size:20px;
+    font-size:22px;
     margin-top:6px;
-    color:#2D2A40;
+    color:var(--text);
   }
   .section-body{
-    margin-top:16px;
+    margin-top:14px;
     color:var(--muted);
     max-width:580px;
-    font-size:16px;
-    line-height:1.75;
+    font-size:19px;
+    line-height:1.7;
   }
 
   .race-panel{
-    margin-top:52px;
+    margin-top:44px;
     background:var(--panel);
     border:1px solid var(--panel-line);
-    border-radius:24px;
-    padding:36px;
-    box-shadow:0 20px 60px -30px rgba(155,140,220,0.35);
+    border-radius:18px;
+    padding:32px;
   }
   .race-controls{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:26px;
+    margin-bottom:24px;
     flex-wrap:wrap;
     gap:16px;
   }
-  .race-title{font-size:12.5px; color:var(--muted);}
+  .race-title{font-size:14px; color:var(--muted);}
   button#runBtn{
-    font-size:13px;
-    background:linear-gradient(90deg, var(--quantum-a), var(--quantum-b));
+    font-size:16px;
+    background:var(--quantum-a);
     border:none;
-    color:#2D2A40;
-    padding:12px 22px;
-    border-radius:100px;
+    color:var(--text);
+    padding:11px 20px;
+    border-radius:6px;
     cursor:pointer;
     font-weight:700;
-    transition:opacity 0.2s, transform 0.2s;
   }
-  button#runBtn:hover{opacity:0.85; transform:translateY(-1px);}
-  button#runBtn:disabled{opacity:0.45; cursor:default; transform:none;}
+  button#runBtn:hover{opacity:0.85;}
+  button#runBtn:disabled{opacity:0.45; cursor:default;}
 
   svg{width:100%; height:auto; display:block;}
   .lane-label{
-    font-size:11.5px;
+    font-size:16px;
     fill:var(--muted);
     font-family:Arial, sans-serif;
   }
   .status-row{
     display:flex;
     justify-content:space-between;
-    margin-top:22px;
-    font-size:13px;
+    margin-top:20px;
+    font-size:16px;
   }
   .status-row .classical-status{color:var(--classical-deep); font-weight:600;}
-  .status-row .quantum-status{color:#4FAE9C; font-weight:600;}
+  .status-row .quantum-status{color:#3E9683; font-weight:600;}
 
   .cards{
-    margin-top:36px;
+    margin-top:32px;
     display:grid;
     grid-template-columns:repeat(2, 1fr);
-    gap:16px;
+    gap:14px;
   }
   .card{
     background:var(--panel);
     border:1px solid var(--panel-line);
-    border-radius:20px;
-    padding:28px 26px;
-    transition:transform 0.25s, box-shadow 0.25s;
+    border-radius:14px;
+    padding:26px 24px;
   }
-  .card:hover{transform:translateY(-3px); box-shadow:0 16px 40px -24px rgba(155,140,220,0.5);}
   .card .icon{
-    width:38px; height:38px;
-    border-radius:12px;
-    margin-bottom:18px;
+    width:36px; height:36px;
+    border-radius:10px;
+    margin-bottom:16px;
     display:flex; align-items:center; justify-content:center;
-    font-size:13px;
+    font-size:16px;
     font-weight:700;
     color:#fff;
   }
   .card h4{
-    font-size:17px;
+    font-size:18px;
     font-weight:700;
-    margin-bottom:10px;
-    color:#2D2A40;
+    margin-bottom:8px;
+    color:var(--text);
   }
-  .card p{color:var(--muted); font-size:14.5px; line-height:1.7;}
+  .card p{color:var(--muted); font-size:16px; line-height:1.65;}
 
   @media (max-width:680px){
     .cards{grid-template-columns:1fr;}
   }
 
-  .pipeline{margin-top:40px;}
+  .pipeline{margin-top:36px;}
   .pstep{
     display:flex;
-    gap:24px;
-    padding:24px 0;
+    gap:22px;
+    padding:22px 0;
     border-top:1px solid var(--panel-line);
   }
   .pstep:last-child{border-bottom:1px solid var(--panel-line);}
   .pstep .pnum{
-    font-size:13px;
+    font-size:16px;
     color:var(--muted);
-    min-width:32px;
+    min-width:30px;
     padding-top:2px;
     font-weight:700;
   }
   .pstep h4{
-    font-size:16px;
+    font-size:19px;
     font-weight:700;
     margin-bottom:6px;
-    color:#2D2A40;
+    color:var(--text);
   }
-  .pstep p{color:var(--muted); font-size:14.5px; line-height:1.7; max-width:560px;}
+  .pstep p{color:var(--muted); font-size:16px; line-height:1.65; max-width:560px;}
 
   .bloch-row{
     display:flex;
-    gap:40px;
+    gap:36px;
     align-items:center;
-    margin-top:40px;
+    margin-top:36px;
     flex-wrap:wrap;
   }
-  .bloch-visual{flex:0 0 220px;}
+  .bloch-visual{flex:0 0 210px;}
   .bloch-text{flex:1; min-width:260px;}
-  .bloch-text p{color:var(--muted); font-size:15px; line-height:1.75;}
-  .bloch-text p + p{margin-top:12px;}
+  .bloch-text p{color:var(--muted); font-size:16px; line-height:1.7;}
+  .bloch-text p + p{margin-top:10px;}
 
   .honest{
     background:var(--panel);
-    border-radius:20px;
-    padding:26px 28px;
-    margin-top:36px;
-    font-size:14.5px;
+    border-radius:14px;
+    padding:24px 26px;
+    margin-top:32px;
+    font-size:16px;
     color:var(--muted);
-    line-height:1.75;
+    line-height:1.7;
     border-left:3px solid var(--classical);
   }
   .honest strong{color:var(--text);}
@@ -258,7 +235,7 @@ layout: null
     position:sticky;
     top:0;
     z-index:10;
-    background:rgba(251,250,255,0.75);
+    background:rgba(251,250,255,0.85);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--panel-line);
   }
@@ -266,28 +243,28 @@ layout: null
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding-top:18px;
-    padding-bottom:18px;
+    padding-top:16px;
+    padding-bottom:16px;
     flex-wrap:wrap;
     gap:10px;
   }
   nav.top .brand{
     font-weight:700;
-    font-size:15px;
-    color:#2D2A40;
+    font-size:16px;
+    color:var(--text);
   }
   nav.top a{
-    font-size:12.5px;
+    font-size:14px;
     color:var(--muted);
     text-decoration:none;
-    margin-left:18px;
+    margin-left:16px;
   }
   nav.top a:hover{color:var(--text);}
 
   footer{
-    padding:70px 0 90px;
+    padding:60px 0 80px;
     border-top:1px solid var(--panel-line);
-    margin-top:20px;
+    margin-top:16px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -296,53 +273,70 @@ layout: null
   }
   footer .cta{
     font-size:13.5px;
-    color:#2D2A40;
+    color:var(--text);
     text-decoration:none;
-    padding:12px 22px;
-    border-radius:100px;
-    background:linear-gradient(90deg, var(--quantum-a), var(--quantum-c));
+    padding:11px 20px;
+    border-radius:6px;
+    background:var(--quantum-a);
     font-weight:700;
   }
-  footer .muted{color:var(--muted); font-size:13px;}
+  footer .muted{color:var(--muted); font-size:16px;}
+
+  .video-wrap{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    margin-top:32px;
+    border-radius:14px;
+    overflow:hidden;
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+  }
+  .video-wrap iframe{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    border:0;
+  }
 </style>
 </head>
 <body>
 
 <div class="blob blob1"></div>
 <div class="blob blob2"></div>
-<div class="blob blob3"></div>
 
 <nav class="top">
   <div class="wrap">
-    <div class="brand">◇ quantum.finance</div>
+    <div class="brand">quantum.finance</div>
     <div>
       <a href="#race-section">the idea</a>
       <a href="#foundations">foundations</a>
       <a href="#concepts">applied</a>
       <a href="#pipeline">how it works</a>
       <a href="#results">results</a>
+      <a href="#watch">watch</a>
     </div>
   </div>
 </nav>
 
 <div class="hero wrap">
-  <div class="eyebrow"><span class="dot"></span>QUANTUM MACHINE LEARNING · FINANCE</div>
-  <h1>Can a computer that explores <span class="grad">every possibility at once</span> read the market better than one that checks them one by one?</h1>
-  <p class="sub">A project comparing classical and quantum machine learning on the same stock data — built to show what quantum computing actually changes, and what it doesn't. Yet.</p>
-  <div class="scroll-cue"><div class="line"></div> SCROLL TO EXPLORE</div>
+  <div class="eyebrow">Quantum machine learning · finance</div>
+  <h1>How machine learning (and quantum tech) could predict the stock market</h1>
+  <p class="sub">I wanted to know if a computer that checks every possibility at once could actually read the market better than a normal one. So I built this to compare classical and quantum machine learning on the same stock data, and see what quantum computing really changes right now, and what it doesn't. Yet.</p>
+  <div class="scroll-cue">Scroll to explore</div>
 </div>
 
 <div class="wrap">
 
   <div class="section" id="race-section">
-    <div class="section-label">01 — The Core Idea</div>
+    <div class="section-label">01. The core idea</div>
     <h2>Same data. Two ways of searching it.</h2>
-    <p class="section-body">A classical model tests patterns in stock data sequentially, one hypothesis after another. A quantum model, using superposition, holds many hypotheses at once — then collapses to the strongest one. Press run to watch the difference play out.</p>
+    <p class="section-body">A classical model tests patterns in stock data sequentially, one hypothesis after another. A quantum model, using superposition, holds many hypotheses at once, then collapses to the strongest one. Press run to watch the difference play out.</p>
 
     <div class="race-panel">
       <div class="race-controls">
-        <div class="race-title">SIMULATION — pattern search across 8 candidate signals</div>
-        <button id="runBtn">▶ Run comparison</button>
+        <div class="race-title">Simulation: pattern search across 8 candidate signals</div>
+        <button id="runBtn">Run comparison</button>
       </div>
 
       <svg viewBox="0 0 900 260" id="raceSvg">
@@ -363,40 +357,40 @@ layout: null
   </div>
 
   <div class="section" id="foundations">
-    <div class="section-label">02 — Quantum Foundations</div>
+    <div class="section-label">02. Quantum foundations</div>
     <h2>The building blocks, before we get to finance</h2>
-    <p class="section-body">Before applying any of this to stock data, here's the underlying physics and math this project rests on.</p>
+    <p class="section-body">Before applying any of this to stock data, here is the underlying physics and math this project rests on.</p>
 
     <div class="cards">
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#C9B6FF,#AFC9FF);">Qb</div>
+        <div class="icon" style="background:#B8A2E8;">Qb</div>
         <h4>Qubits</h4>
-        <p>The quantum version of a bit. Instead of being strictly 0 or 1, a qubit is described by a combination of both — its exact state only "decides" when measured.</p>
+        <p>The quantum version of a bit. Instead of being strictly 0 or 1, a qubit is described by a combination of both. Its exact state only decides when measured.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#AFC9FF,#9FE8DD);">Sp</div>
+        <div class="icon" style="background:#8FC9BD;">Sp</div>
         <h4>Superposition</h4>
-        <p>The property that lets a qubit hold a weighted blend of 0 and 1 simultaneously, letting a circuit represent many scenarios at once instead of one at a time.</p>
+        <p>The property that lets a qubit hold a weighted blend of 0 and 1 at the same time, letting a circuit represent many scenarios at once instead of one at a time.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#9FE8DD,#AFC9FF);">En</div>
+        <div class="icon" style="background:#8FA8D9;">En</div>
         <h4>Entanglement</h4>
-        <p>When two qubits become correlated so strongly that measuring one instantly tells you something about the other, no matter how they're processed afterward.</p>
+        <p>When two qubits become correlated so strongly that measuring one instantly tells you something about the other, no matter how they are processed afterward.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#FFC3A0,#C9B6FF);">Gt</div>
-        <h4>Quantum Gates & Circuits</h4>
-        <p>Gates are the operations that rotate and entangle qubits — the quantum equivalent of AND/OR logic gates. Chaining gates together builds a quantum circuit, the quantum version of a program.</p>
+        <div class="icon" style="background:#E0A183;">Gt</div>
+        <h4>Quantum gates and circuits</h4>
+        <p>Gates are the operations that rotate and entangle qubits, the quantum equivalent of AND/OR logic gates. Chaining gates together builds a quantum circuit, the quantum version of a program.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#C9B6FF,#FFC3A0);">Bs</div>
-        <h4>The Bloch Sphere</h4>
-        <p>A way of visualizing a single qubit's state as a point on a sphere — the north and south poles are 0 and 1, and everywhere else represents a superposition between them.</p>
+        <div class="icon" style="background:#B8A2E8;">Bs</div>
+        <h4>The Bloch sphere</h4>
+        <p>A way of visualizing a single qubit's state as a point on a sphere. The north and south poles are 0 and 1, and everywhere else represents a superposition between them.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#9FE8DD,#FFC3A0);">Sd</div>
-        <h4>Schmidt Decomposition</h4>
-        <p>A math theorem that lets you break down the state of two entangled qubits into simpler, paired-up pieces — it's how physicists formally measure how entangled a system actually is.</p>
+        <div class="icon" style="background:#8FC9BD;">Sd</div>
+        <h4>Schmidt decomposition</h4>
+        <p>A math theorem that lets you break down the state of two entangled qubits into simpler, paired up pieces. It's how physicists formally measure how entangled a system actually is.</p>
       </div>
     </div>
 
@@ -412,111 +406,120 @@ layout: null
           <circle cx="110" cy="110" r="90" fill="url(#sphereGrad)" stroke="#C9B6FF" stroke-width="1.5"/>
           <ellipse cx="110" cy="110" rx="90" ry="26" fill="none" stroke="#B8A2FF" stroke-width="1" opacity="0.6"/>
           <ellipse cx="110" cy="110" rx="26" ry="90" fill="none" stroke="#B8A2FF" stroke-width="1" opacity="0.6"/>
-          <line x1="110" y1="20" x2="110" y2="200" stroke="#8D89A8" stroke-width="1" opacity="0.5"/>
+          <line x1="110" y1="20" x2="110" y2="200" stroke="#3E3A52" stroke-width="1" opacity="0.4"/>
           <circle cx="110" cy="20" r="4" fill="#8FE3D6"/>
           <circle cx="110" cy="200" r="4" fill="#F2A87E"/>
-          <text x="118" y="16" font-size="11" fill="#8D89A8">|0⟩</text>
-          <text x="118" y="212" font-size="11" fill="#8D89A8">|1⟩</text>
-          <line x1="110" y1="110" x2="165" y2="70" stroke="#C9B6FF" stroke-width="2.5"/>
-          <circle cx="165" cy="70" r="5" fill="#B8A2FF"/>
+          <text x="118" y="16" font-size="11" fill="#3E3A52">|0></text>
+          <text x="118" y="212" font-size="11" fill="#3E3A52">|1></text>
+          <line x1="110" y1="110" x2="165" y2="70" stroke="#8B6FD9" stroke-width="2.5"/>
+          <circle cx="165" cy="70" r="5" fill="#8B6FD9"/>
         </svg>
       </div>
       <div class="bloch-text">
         <h3 class="sub-heading">Reading the sphere</h3>
-        <p>The purple arrow is a single qubit's state. Straight up means a definite 0, straight down means a definite 1 — anywhere else on the surface is a valid superposition, with the angle determining the exact mix.</p>
-        <p>In this project, gate operations are literally rotations of this arrow around the sphere. Training a variational circuit means learning the right sequence of rotations for each qubit.</p>
+        <p>The arrow is a single qubit's state. Straight up means a definite 0, straight down means a definite 1. Anywhere else on the surface is a valid superposition, with the angle determining the exact mix.</p>
+        <p>In this project, gate operations are rotations of this arrow around the sphere. Training a variational circuit means learning the right sequence of rotations for each qubit.</p>
       </div>
     </div>
   </div>
 
   <div class="section" id="concepts">
-    <div class="section-label">03 — Applying It to Finance</div>
+    <div class="section-label">03. Applying it to finance</div>
     <h2>Where these ideas actually get used</h2>
     <p class="section-body">The foundational concepts above show up directly in how this project encodes and processes stock data.</p>
 
     <div class="cards">
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#AFC9FF,#9FE8DD);">Fm</div>
-        <h4>Quantum Feature Maps</h4>
-        <p>Classical stock data (price, volume, momentum) gets encoded into qubit rotation angles — turning numbers into something a quantum circuit can act on.</p>
+        <div class="icon" style="background:#8FA8D9;">Fm</div>
+        <h4>Quantum feature maps</h4>
+        <p>Classical stock data (price, volume, momentum) gets encoded into qubit rotation angles. This turns numbers into something a quantum circuit can act on.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#C9B6FF,#AFC9FF);">Vc</div>
-        <h4>Variational Quantum Circuits</h4>
-        <p>A circuit with tunable "knobs," trained the way a classical neural network is — adjusted step by step until it predicts price direction more accurately.</p>
+        <div class="icon" style="background:#B8A2E8;">Vc</div>
+        <h4>Variational quantum circuits</h4>
+        <p>A circuit with tunable knobs, trained the way a classical neural network is. It's adjusted step by step until it predicts price direction more accurately.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#FFC3A0,#C9B6FF);">Qk</div>
-        <h4>Quantum Kernels</h4>
-        <p>Instead of training a circuit directly, this measures how "similar" two days of market data are in a much richer, higher-dimensional space than classical methods reach.</p>
+        <div class="icon" style="background:#E0A183;">Qk</h4>
+        <h4>Quantum kernels</h4>
+        <p>Instead of training a circuit directly, this measures how similar two days of market data are in a much richer, higher dimensional space than classical methods reach.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#9FE8DD,#FFC3A0);">Dc</div>
-        <h4>Decoherence & the NISQ Era</h4>
-        <p>Today's qubits lose their quantum state within microseconds due to noise. This is the honest ceiling on current hardware — and why results here are modest, not magic.</p>
+        <div class="icon" style="background:#8FC9BD;">Dc</div>
+        <h4>Decoherence and the NISQ era</h4>
+        <p>Today's qubits lose their quantum state within microseconds due to noise. This is the honest ceiling on current hardware, and why results here are modest, not magic.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#C9B6FF,#FFC3A0);">Sh</div>
-        <h4>Shor's Algorithm</h4>
-        <p>Not used directly in this project, but the landmark result that proves quantum computers can outpace classical ones — it factors large numbers exponentially faster, which is also why it threatens today's encryption.</p>
+        <div class="icon" style="background:#B8A2E8;">Sh</div>
+        <h4>Shor's algorithm</h4>
+        <p>Not used directly in this project, but the landmark result that proves quantum computers can outpace classical ones. It factors large numbers exponentially faster, which is also why it threatens today's encryption.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:linear-gradient(135deg,#9FE8DD,#AFC9FF);">Tq</div>
-        <h4>Topological Quantum Field Theory</h4>
-        <p>A more advanced, forward-looking direction: TQFT-based ("topological") qubits are designed to resist noise structurally, which could eventually solve the decoherence problem above.</p>
+        <div class="icon" style="background:#8FC9BD;">Tq</div>
+        <h4>Topological quantum field theory</h4>
+        <p>A more advanced, forward looking direction. Topological qubits are designed to resist noise structurally, which could eventually solve the decoherence problem above.</p>
       </div>
     </div>
   </div>
 
   <div class="section" id="pipeline">
-    <div class="section-label">04 — How It Actually Works</div>
+    <div class="section-label">04. How it actually works</div>
     <h2>From stock chart to quantum circuit</h2>
-    <p class="section-body">Four steps turn raw price history into something a quantum computer can process — and eventually, a prediction.</p>
+    <p class="section-body">Four steps turn raw price history into something a quantum computer can process, and eventually, a prediction.</p>
 
     <div class="pipeline">
       <div class="pstep">
         <div class="pnum">01</div>
         <div>
           <h4>Encode the data</h4>
-          <p>Historical price, volume, and momentum indicators are normalized and mapped onto qubit rotation angles — the quantum feature map in action.</p>
+          <p>Historical price, volume, and momentum indicators are normalized and mapped onto qubit rotation angles. This is the quantum feature map in action.</p>
         </div>
       </div>
       <div class="pstep">
         <div class="pnum">02</div>
         <div>
           <h4>Build the circuit</h4>
-          <p>A variational quantum circuit is assembled from layers of rotation and entangling gates, each with adjustable parameters — the qubit equivalent of a neural network's weights.</p>
+          <p>A variational quantum circuit is assembled from layers of rotation and entangling gates, each with adjustable parameters. This is the qubit equivalent of a neural network's weights.</p>
         </div>
       </div>
       <div class="pstep">
         <div class="pnum">03</div>
         <div>
           <h4>Measure and compare</h4>
-          <p>The circuit is measured, collapsing superposition into a classical output — a predicted "up" or "down." This is compared against the actual historical result.</p>
+          <p>The circuit is measured, collapsing superposition into a classical output, a predicted up or down. This is compared against the actual historical result.</p>
         </div>
       </div>
       <div class="pstep">
         <div class="pnum">04</div>
         <div>
-          <h4>Train, hybrid-style</h4>
-          <p>A classical optimizer adjusts the circuit's parameters based on the error — a loop between classical and quantum computation, which is how nearly all real QML runs today.</p>
+          <h4>Train, hybrid style</h4>
+          <p>A classical optimizer adjusts the circuit's parameters based on the error. This loop between classical and quantum computation is how nearly all real QML runs today.</p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="section" id="results">
-    <div class="section-label">05 — The Results</div>
+    <div class="section-label">05. The results</div>
     <h2>Did quantum win?</h2>
-    <p class="section-body">Not yet — and that's the more honest, more interesting answer.</p>
+    <p class="section-body">Not yet, and that's the more honest, more interesting answer.</p>
     <div class="honest">
-      <strong>Reality check:</strong> today's quantum hardware is small and noisy (the "NISQ" era — noisy, intermediate-scale quantum). In this project, the quantum model didn't outperform the classical one on prediction accuracy. What it does show is the mechanism — how superposition, entanglement, and quantum feature maps change the shape of the search itself, and why researchers expect an advantage to emerge as hardware improves.
+      <strong>Reality check:</strong> today's quantum hardware is small and noisy (the NISQ era: noisy, intermediate scale quantum). In this project, the quantum model didn't outperform the classical one on prediction accuracy. What it does show is the mechanism: how superposition, entanglement, and quantum feature maps change the shape of the search itself, and why researchers expect an advantage to emerge as hardware improves.
+    </div>
+  </div>
+
+  <div class="section" id="watch">
+    <div class="section-label">06. Watch</div>
+    <h2>If you want to see it explained out loud</h2>
+    <p class="section-body">This video covers a lot of the same ground, how quantum machine learning is actually being explored in finance right now.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/3bDVHWdUWfE" title="Quantum Machine Learning for Finance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 
   <footer>
-    <span class="muted">quantum.finance — mini-project, 2026</span>
-    <a class="cta" href="#">Read the full write-up →</a>
+    <span class="muted">quantum.finance, mini project, 2026</span>
+    <a class="cta" href="#">Read the full write-up</a>
   </footer>
 
 </div>
@@ -555,7 +558,7 @@ function makeLine(x1,y1,x2,y2,stroke,width,opacity){
 function runComparison(){
   clearLanes();
   runBtn.disabled = true;
-  runBtn.textContent = '● Running...';
+  runBtn.textContent = 'Running...';
 
   const steps = 8;
   const spacing = 860 / steps;
@@ -572,7 +575,7 @@ function runComparison(){
       });
       classicalStatus.textContent = i < steps-1
         ? `Searching signal ${i+2} / 8`
-        : 'Best pattern found — 8/8 checked sequentially';
+        : 'Best pattern found, 8/8 checked sequentially';
     }, i * 260);
   }
 
@@ -595,7 +598,7 @@ function runComparison(){
   }, 100);
 
   setTimeout(()=>{
-    quantumStatus.textContent = 'All candidates explored in parallel — collapsed to best match';
+    quantumStatus.textContent = 'All candidates explored in parallel, collapsed to best match';
     const finalDot = makeCircle(880, 164, 10, '#8FE3D6', 0);
     quantumLane.appendChild(finalDot);
     requestAnimationFrame(()=>{
@@ -606,7 +609,7 @@ function runComparison(){
 
   setTimeout(()=>{
     runBtn.disabled = false;
-    runBtn.textContent = '↻ Run again';
+    runBtn.textContent = 'Run again';
   }, 2400);
 }
 

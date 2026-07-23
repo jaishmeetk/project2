@@ -8,16 +8,16 @@ layout: null
 <title>How Quantum Tech Could Predict the Stock Market</title>
 <style>
   :root{
-    --bg:#F4F9FF;
-    --panel:#EAF3FC;
-    --panel-line:#D9E8F7;
+    --bg:#E8F3FF;
+    --panel:#DCEBFA;
+    --panel-line:#C3DCF5;
     --text:#1C1A28;
     --muted:#3E3A52;
     --classical:#FFC3A0;
     --classical-deep:#F2A87E;
     --quantum-a:#C9B6FF;
     --quantum-b:#9FE8DD;
-    --quantum-c:#AFC9FF;
+    --quantum-c:#8FB8FF;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -27,7 +27,7 @@ layout: null
     font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
   }
-  .wrap{max-width:980px; margin:0 auto; padding:0 28px;}
+  .wrap{max-width:1500px; margin:0 auto; padding:0 60px;}
 
   .blob{
     position:fixed;
@@ -41,12 +41,36 @@ layout: null
   .blob2{width:360px; height:360px; background:var(--quantum-b); bottom:10%; left:-140px;}
 
   .hero{
-    min-height:88vh;
+    padding:90px 0 70px;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
+    gap:40px;
+    align-items:center;
     position:relative;
+    flex-wrap:wrap;
   }
+  .hero-main{flex:1 1 560px; min-width:280px;}
+  .hero-card{
+    flex:0 0 300px;
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:18px;
+    padding:26px 24px;
+  }
+  .hero-card .row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid var(--panel-line);
+  }
+  .hero-card .row:last-child{border-bottom:none;}
+  .hero-card .row-label{font-size:14px; color:var(--muted);}
+  .hero-card .row-value{font-size:14px; font-weight:700; color:var(--text);}
+  .hero-card .dot{width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:8px;}
+  @media (max-width:800px){
+    .hero-card{display:none;}
+  }
+
   .eyebrow{
     font-size:14px;
     letter-spacing:0.08em;
@@ -57,9 +81,9 @@ layout: null
   }
   h1{
     font-weight:700;
-    font-size:clamp(38px, 5.5vw, 64px);
-    line-height:1.2;
-    max-width:780px;
+    font-size:clamp(38px, 6vw, 72px);
+    line-height:1.15;
+    max-width:1100px;
     color:#000;
   }
   .sub{
@@ -67,7 +91,7 @@ layout: null
     font-size:22px;
     line-height:1.65;
     color:var(--muted);
-    max-width:520px;
+    max-width:820px;
   }
   .scroll-cue{
     margin-top:40px;
@@ -100,7 +124,7 @@ layout: null
   .section-body{
     margin-top:14px;
     color:var(--muted);
-    max-width:580px;
+    max-width:900px;
     font-size:19px;
     line-height:1.7;
   }
@@ -152,8 +176,11 @@ layout: null
   .cards{
     margin-top:32px;
     display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:14px;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+  @media (max-width:1000px){
+    .cards{grid-template-columns:repeat(2, 1fr);}
   }
   .card{
     background:var(--panel);
@@ -203,7 +230,7 @@ layout: null
     margin-bottom:6px;
     color:var(--text);
   }
-  .pstep p{color:var(--muted); font-size:16px; line-height:1.65; max-width:560px;}
+  .pstep p{color:var(--muted); font-size:16px; line-height:1.65; max-width:900px;}
 
   .bloch-row{
     display:flex;
@@ -233,7 +260,7 @@ layout: null
     position:sticky;
     top:0;
     z-index:10;
-    background:rgba(244,249,255,0.85);
+    background:rgba(251,250,255,0.85);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--panel-line);
   }
@@ -318,10 +345,30 @@ layout: null
 </nav>
 
 <div class="hero wrap">
-  <div class="eyebrow">Quantum machine learning · finance</div>
-  <h1>How machine learning (and quantum tech) could predict the stock market</h1>
-  <p class="sub">I wanted to know if a computer that checks every possibility at once could actually read the market better than a normal one. So I built this to compare classical and quantum machine learning on the same stock data, and see what quantum computing really changes right now, and what it doesn't. Yet.</p>
-  <div class="scroll-cue">Scroll to explore</div>
+  <div class="hero-main">
+    <div class="eyebrow">Quantum machine learning · finance</div>
+    <h1>How machine learning (and quantum tech) could predict the stock market</h1>
+    <p class="sub">I wanted to know if a computer that checks every possibility at once could actually read the market better than a normal one. So I built this to compare classical and quantum machine learning on the same stock data, and see what quantum computing really changes right now, and what it doesn't. Yet.</p>
+    <div class="scroll-cue">Scroll to explore</div>
+  </div>
+  <div class="hero-card">
+    <div class="row">
+      <span class="row-label"><span class="dot" style="background:#F2A87E;"></span>Classical model</span>
+      <span class="row-value">Sequential search</span>
+    </div>
+    <div class="row">
+      <span class="row-label"><span class="dot" style="background:#8B6FD9;"></span>Quantum model</span>
+      <span class="row-value">Parallel search</span>
+    </div>
+    <div class="row">
+      <span class="row-label"><span class="dot" style="background:#3E9683;"></span>Data used</span>
+      <span class="row-value">Real stock history</span>
+    </div>
+    <div class="row">
+      <span class="row-label"><span class="dot" style="background:#8FA8D9;"></span>Hardware</span>
+      <span class="row-value">Simulator (NISQ era)</span>
+    </div>
+  </div>
 </div>
 
 <div class="wrap">
@@ -339,11 +386,11 @@ layout: null
 
       <svg viewBox="0 0 900 260" id="raceSvg">
         <text x="0" y="20" class="lane-label">CLASSICAL</text>
-        <line x1="0" y1="34" x2="900" y2="34" stroke="#D9E8F7" stroke-width="1"/>
+        <line x1="0" y1="34" x2="900" y2="34" stroke="#E4E0F5" stroke-width="1"/>
         <g id="classicalLane"></g>
 
         <text x="0" y="150" class="lane-label">QUANTUM</text>
-        <line x1="0" y1="164" x2="900" y2="164" stroke="#D9E8F7" stroke-width="1"/>
+        <line x1="0" y1="164" x2="900" y2="164" stroke="#E4E0F5" stroke-width="1"/>
         <g id="quantumLane"></g>
       </svg>
 
@@ -397,8 +444,8 @@ layout: null
         <svg viewBox="0 0 220 220" width="220" height="220">
           <defs>
             <radialGradient id="sphereGrad" cx="35%" cy="30%" r="70%">
-              <stop offset="0%" stop-color="#EAF3FC"/>
-              <stop offset="100%" stop-color="#D3E4FA"/>
+              <stop offset="0%" stop-color="#F3F1FB"/>
+              <stop offset="100%" stop-color="#D9D2F5"/>
             </radialGradient>
           </defs>
           <circle cx="110" cy="110" r="90" fill="url(#sphereGrad)" stroke="#C9B6FF" stroke-width="1.5"/>

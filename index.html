@@ -5,7 +5,7 @@ layout: null
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>How Quantum Tech Could Predict the Stock Market</title>
+<title>Applications of Quantum Machine Learning in Financial Markets</title>
 <style>
   :root{
     --bg:#E8F3FF;
@@ -27,7 +27,7 @@ layout: null
     font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
   }
-  .wrap{max-width:1500px; margin:0 auto; padding:0 60px;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 40px;}
 
   .blob{
     position:fixed;
@@ -41,36 +41,11 @@ layout: null
   .blob2{width:360px; height:360px; background:var(--quantum-b); bottom:10%; left:-140px;}
 
   .hero{
-    padding:90px 0 70px;
-    display:flex;
-    gap:40px;
-    align-items:center;
+    padding:80px 0 60px;
     position:relative;
-    flex-wrap:wrap;
+    text-align:center;
   }
-  .hero-main{flex:1 1 560px; min-width:280px;}
-  .hero-card{
-    flex:0 0 300px;
-    background:var(--panel);
-    border:1px solid var(--panel-line);
-    border-radius:18px;
-    padding:26px 24px;
-  }
-  .hero-card .row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px 0;
-    border-bottom:1px solid var(--panel-line);
-  }
-  .hero-card .row:last-child{border-bottom:none;}
-  .hero-card .row-label{font-size:14px; color:var(--muted);}
-  .hero-card .row-value{font-size:14px; font-weight:700; color:var(--text);}
-  .hero-card .dot{width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:8px;}
-  @media (max-width:800px){
-    .hero-card{display:none;}
-  }
-
+  .hero h1, .hero .sub{margin-left:auto; margin-right:auto;}
   .eyebrow{
     font-size:14px;
     letter-spacing:0.08em;
@@ -81,25 +56,26 @@ layout: null
   }
   h1{
     font-weight:700;
-    font-size:clamp(38px, 6vw, 72px);
-    line-height:1.15;
-    max-width:1100px;
+    font-size:clamp(32px, 5vw, 54px);
+    line-height:1.2;
+    max-width:1000px;
     color:#000;
   }
   .sub{
-    margin-top:24px;
-    font-size:22px;
-    line-height:1.65;
+    margin-top:22px;
+    font-size:20px;
+    line-height:1.6;
     color:var(--muted);
-    max-width:820px;
+    max-width:700px;
   }
   .scroll-cue{
-    margin-top:40px;
-    font-size:16px;
+    margin-top:36px;
+    font-size:20px;
+    font-weight:600;
     color:var(--muted);
   }
 
-  .section{padding:88px 0;}
+  .section{padding:72px 0;}
   .section-label{
     font-size:16px;
     letter-spacing:0.08em;
@@ -110,208 +86,215 @@ layout: null
   }
   h2{
     font-weight:700;
-    font-size:clamp(26px, 3.4vw, 36px);
-    max-width:640px;
+    font-size:clamp(24px, 3vw, 32px);
+    max-width:760px;
     line-height:1.3;
-    color:var(--text);
-  }
-  h3.sub-heading{
-    font-weight:700;
-    font-size:22px;
-    margin-top:6px;
     color:var(--text);
   }
   .section-body{
     margin-top:14px;
     color:var(--muted);
-    max-width:900px;
-    font-size:19px;
-    line-height:1.7;
+    max-width:760px;
+    font-size:17px;
+    line-height:1.65;
   }
 
-  .race-panel{
-    margin-top:44px;
-    background:var(--panel);
-    border:1px solid var(--panel-line);
-    border-radius:18px;
-    padding:32px;
-  }
-  .race-controls{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:24px;
-    flex-wrap:wrap;
-    gap:16px;
-  }
-  .race-title{font-size:14px; color:var(--muted);}
-  button#runBtn{
-    font-size:16px;
-    background:var(--quantum-a);
-    border:none;
-    color:var(--text);
-    padding:11px 20px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:700;
-  }
-  button#runBtn:hover{opacity:0.85;}
-  button#runBtn:disabled{opacity:0.45; cursor:default;}
-
-  svg{width:100%; height:auto; display:block;}
-  .lane-label{
-    font-size:16px;
-    fill:var(--muted);
-    font-family:Arial, sans-serif;
-  }
-  .status-row{
-    display:flex;
-    justify-content:space-between;
-    margin-top:20px;
-    font-size:16px;
-  }
-  .status-row .classical-status{color:var(--classical-deep); font-weight:600;}
-  .status-row .quantum-status{color:#3E9683; font-weight:600;}
-
+  /* concept cards */
   .cards{
-    margin-top:32px;
+    margin-top:28px;
     display:grid;
     grid-template-columns:repeat(3, 1fr);
-    gap:16px;
+    gap:14px;
   }
-  @media (max-width:1000px){
+  @media (max-width:900px){
     .cards{grid-template-columns:repeat(2, 1fr);}
   }
   .card{
     background:var(--panel);
     border:1px solid var(--panel-line);
     border-radius:14px;
-    padding:26px 24px;
+    padding:22px 20px;
   }
   .card .icon{
-    width:36px; height:36px;
-    border-radius:10px;
-    margin-bottom:16px;
+    width:32px; height:32px;
+    border-radius:9px;
+    margin-bottom:14px;
     display:flex; align-items:center; justify-content:center;
-    font-size:16px;
+    font-size:14px;
     font-weight:700;
     color:#fff;
   }
   .card h4{
-    font-size:18px;
-    font-weight:700;
-    margin-bottom:8px;
-    color:var(--text);
-  }
-  .card p{color:var(--muted); font-size:16px; line-height:1.65;}
-
-  @media (max-width:680px){
-    .cards{grid-template-columns:1fr;}
-  }
-
-  .pipeline{margin-top:36px;}
-  .pstep{
-    display:flex;
-    gap:22px;
-    padding:22px 0;
-    border-top:1px solid var(--panel-line);
-  }
-  .pstep:last-child{border-bottom:1px solid var(--panel-line);}
-  .pstep .pnum{
     font-size:16px;
-    color:var(--muted);
-    min-width:30px;
-    padding-top:2px;
-    font-weight:700;
-  }
-  .pstep h4{
-    font-size:19px;
     font-weight:700;
     margin-bottom:6px;
     color:var(--text);
   }
-  .pstep p{color:var(--muted); font-size:16px; line-height:1.65; max-width:900px;}
+  .card p{color:var(--muted); font-size:14px; line-height:1.55;}
 
+  /* race panel, reused for stock prediction + portfolio optimisation */
+  .race-panel{
+    margin-top:32px;
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:18px;
+    padding:28px;
+  }
+  .race-controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .race-title{font-size:14px; color:var(--muted);}
+  .run-btn{
+    font-size:15px;
+    background:var(--quantum-a);
+    border:none;
+    color:var(--text);
+    padding:10px 18px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:700;
+  }
+  .run-btn:hover{opacity:0.85;}
+  .run-btn:disabled{opacity:0.45; cursor:default;}
+
+  svg{width:100%; height:auto; display:block;}
+  .lane-label{font-size:15px; fill:var(--muted); font-family:Arial, sans-serif;}
+  .status-row{
+    display:flex;
+    justify-content:space-between;
+    margin-top:16px;
+    font-size:15px;
+  }
+  .status-classical{color:var(--classical-deep); font-weight:600;}
+  .status-quantum{color:#3E9683; font-weight:600;}
+
+  /* bloch sphere */
   .bloch-row{
     display:flex;
-    gap:36px;
+    gap:32px;
     align-items:center;
-    margin-top:36px;
+    margin-top:32px;
     flex-wrap:wrap;
   }
-  .bloch-visual{flex:0 0 210px;}
+  .bloch-visual{flex:0 0 200px;}
   .bloch-text{flex:1; min-width:260px;}
-  .bloch-text p{color:var(--muted); font-size:16px; line-height:1.7;}
-  .bloch-text p + p{margin-top:10px;}
+  .bloch-text p{color:var(--muted); font-size:15px; line-height:1.65;}
+  .bloch-buttons{margin-top:16px; display:flex; flex-wrap:wrap; gap:8px;}
+  .bloch-btn{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:13.5px;
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    color:var(--text);
+    padding:9px 14px;
+    border-radius:100px;
+    cursor:pointer;
+    font-weight:600;
+    transition:background 0.2s;
+  }
+  .bloch-btn:hover{background:var(--quantum-a);}
+
+  /* bar demo, reused for risk analysis + option pricing */
+  .bar-demo{
+    margin-top:28px;
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:18px;
+    padding:28px;
+  }
+  .bar-row{margin-bottom:18px;}
+  .bar-row:last-child{margin-bottom:0;}
+  .bar-row-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    margin-bottom:6px;
+    color:var(--muted);
+    font-weight:600;
+  }
+  .bar-track{
+    height:16px;
+    background:#fff;
+    border-radius:100px;
+    overflow:hidden;
+    border:1px solid var(--panel-line);
+  }
+  .bar-fill{
+    height:100%;
+    width:0%;
+    border-radius:100px;
+    transition:width 1.1s ease;
+  }
+  .bar-fill.classical{background:var(--classical-deep);}
+  .bar-fill.quantum{background:#3E9683;}
+
+  /* timeline */
+  .timeline{
+    margin-top:32px;
+    display:flex;
+    gap:8px;
+    align-items:flex-start;
+  }
+  .tl-step{
+    flex:1;
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:14px;
+    padding:18px 16px;
+    position:relative;
+  }
+  .tl-dot{
+    width:12px; height:12px;
+    border-radius:50%;
+    background:var(--quantum-a);
+    margin-bottom:10px;
+  }
+  .tl-step.now .tl-dot{background:var(--classical-deep);}
+  .tl-step h4{font-size:15px; font-weight:700; margin-bottom:4px; color:var(--text);}
+  .tl-step p{font-size:13px; color:var(--muted); line-height:1.5;}
+  @media (max-width:800px){
+    .timeline{flex-direction:column;}
+  }
 
   .honest{
     background:var(--panel);
     border-radius:14px;
-    padding:24px 26px;
-    margin-top:32px;
-    font-size:16px;
+    padding:22px 24px;
+    margin-top:24px;
+    font-size:15px;
     color:var(--muted);
-    line-height:1.7;
+    line-height:1.65;
     border-left:3px solid var(--classical);
   }
   .honest strong{color:var(--text);}
 
-  nav.top{
-    position:sticky;
-    top:0;
-    z-index:10;
-    background:rgba(251,250,255,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--panel-line);
-  }
-  nav.top .wrap{
+  .tldr-list{
+    margin-top:28px;
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding-top:16px;
-    padding-bottom:16px;
-    flex-wrap:wrap;
-    gap:10px;
+    flex-direction:column;
+    gap:12px;
   }
-  nav.top .brand{
-    font-weight:700;
-    font-size:16px;
-    color:var(--text);
-  }
-  nav.top a{
-    font-size:14px;
+  .tldr-item{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:12px;
+    padding:16px 20px;
+    font-size:15px;
     color:var(--muted);
-    text-decoration:none;
-    margin-left:16px;
+    line-height:1.6;
   }
-  nav.top a:hover{color:var(--text);}
-
-  footer{
-    padding:60px 0 80px;
-    border-top:1px solid var(--panel-line);
-    margin-top:16px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:20px;
-  }
-  footer .cta{
-    font-size:13.5px;
-    color:var(--text);
-    text-decoration:none;
-    padding:11px 20px;
-    border-radius:6px;
-    background:var(--quantum-a);
-    font-weight:700;
-  }
-  footer .muted{color:var(--muted); font-size:16px;}
+  .tldr-item strong{color:var(--text);}
 
   .video-wrap{
     position:relative;
     width:100%;
     padding-top:56.25%;
-    margin-top:32px;
+    margin-top:28px;
     border-radius:14px;
     overflow:hidden;
     background:var(--panel);
@@ -323,9 +306,113 @@ layout: null
     width:100%; height:100%;
     border:0;
   }
+
+  .progress-nav{
+    position:fixed;
+    right:22px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:20;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .progress-dot{
+    width:10px; height:10px;
+    border-radius:50%;
+    background:var(--panel-line);
+    cursor:pointer;
+    border:none;
+    padding:0;
+    position:relative;
+    transition:background 0.25s, transform 0.25s;
+  }
+  .progress-dot:hover{transform:scale(1.3);}
+  .progress-dot.active{
+    background:var(--quantum-a);
+    transform:scale(1.4);
+  }
+  .progress-dot .tip{
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform:translateY(-50%);
+    background:var(--text);
+    color:#fff;
+    font-size:11.5px;
+    padding:4px 9px;
+    border-radius:5px;
+    white-space:nowrap;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.2s;
+  }
+  .progress-dot:hover .tip{opacity:1;}
+  @media (max-width:900px){
+    .progress-nav{display:none;}
+  }
+
+  nav.top{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(232,243,255,0.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--panel-line);
+  }
+  nav.top .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:16px;
+    padding-bottom:16px;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  nav.top .brand{font-weight:700; font-size:16px; color:var(--text);}
+  nav.top a{
+    font-size:13px;
+    color:var(--muted);
+    text-decoration:none;
+    margin-left:14px;
+  }
+  nav.top a:hover{color:var(--text);}
+
+  .site-footer{
+    text-align:center;
+    padding:60px 0 80px;
+    border-top:1px solid var(--panel-line);
+    margin-top:16px;
+  }
+  .site-footer .byline{font-size:16px; color:var(--muted); margin-bottom:14px;}
+  .site-footer .byline strong{color:var(--text);}
+  .site-footer .socials{display:flex; justify-content:center; gap:16px; margin-bottom:14px;}
+  .site-footer .socials a{
+    font-size:14px;
+    color:var(--text);
+    text-decoration:none;
+    padding:8px 16px;
+    border-radius:100px;
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+  }
+  .site-footer .socials a:hover{background:var(--quantum-a);}
+  .site-footer .sign-off{font-size:13.5px; color:var(--muted);}
 </style>
 </head>
 <body>
+
+<div class="progress-nav" id="progressNav">
+  <button class="progress-dot" data-target="foundations"><span class="tip">Foundations</span></button>
+  <button class="progress-dot" data-target="stock"><span class="tip">Stock prediction</span></button>
+  <button class="progress-dot" data-target="portfolio"><span class="tip">Portfolio</span></button>
+  <button class="progress-dot" data-target="risk"><span class="tip">Risk analysis</span></button>
+  <button class="progress-dot" data-target="options"><span class="tip">Option pricing</span></button>
+  <button class="progress-dot" data-target="future"><span class="tip">Future</span></button>
+  <button class="progress-dot" data-target="watch"><span class="tip">Watch</span></button>
+  <button class="progress-dot" data-target="tldr"><span class="tip">TL;DR</span></button>
+  <button class="progress-dot" data-target="references"><span class="tip">References</span></button>
+</div>
 
 <div class="blob blob1"></div>
 <div class="blob blob2"></div>
@@ -334,116 +421,68 @@ layout: null
   <div class="wrap">
     <div class="brand">quantum.finance</div>
     <div>
-      <a href="#race-section">the idea</a>
       <a href="#foundations">foundations</a>
-      <a href="#concepts">applied</a>
-      <a href="#pipeline">how it works</a>
-      <a href="#results">results</a>
+      <a href="#stock">prediction</a>
+      <a href="#portfolio">portfolio</a>
+      <a href="#risk">risk</a>
+      <a href="#options">options</a>
+      <a href="#future">future</a>
       <a href="#watch">watch</a>
+      <a href="#references">references</a>
     </div>
   </div>
 </nav>
 
 <div class="hero wrap">
-  <div class="hero-main">
-    <div class="eyebrow">Quantum machine learning · finance</div>
-    <h1>How quantum machine learning could predict the stock market</h1>
-    <p class="sub"> I wanted to know if a computer that checks every possibility at once could actually read the market better than a normal one.
-      So I built this to compare classical and quantum machine learning on the same stock data, and see what quantum computing really changes right now, and what it doesn't.
-      Yet.</p>
-    <div class="scroll-cue">Scroll to explore...!</div>
-  </div>
-  <div class="hero-card">
-    <div class="row">
-      <span class="row-label"><span class="dot" style="background:#F2A87E;"></span>Classical model</span>
-      <span class="row-value">Sequential search</span>
-    </div>
-    <div class="row">
-      <span class="row-label"><span class="dot" style="background:#8B6FD9;"></span>Quantum model</span>
-      <span class="row-value">Parallel search</span>
-    </div>
-    <div class="row">
-      <span class="row-label"><span class="dot" style="background:#3E9683;"></span>Data used</span>
-      <span class="row-value">Real stock history</span>
-    </div>
-    <div class="row">
-      <span class="row-label"><span class="dot" style="background:#8FA8D9;"></span>Hardware</span>
-      <span class="row-value">Simulator (NISQ era)</span>
-    </div>
-  </div>
+  <div class="eyebrow">Quantum machine learning · finance</div>
+  <h1>Applications of Quantum Machine Learning in Financial Markets</h1>
+  <p class="sub">Five real places quantum computing is being tested in finance today, and the ideas that make each one work. Click through the visuals as you go!</p>
+  <div class="scroll-cue">Scroll to explore ↓</div>
 </div>
 
 <div class="wrap">
 
-  <div class="section" id="race-section">
-    <div class="section-label">01. The core idea</div>
-    <h2>Same data. Two ways of searching it.</h2>
-    <p class="section-body">A classical model tests patterns in stock data sequentially, one hypothesis after another. A quantum model, using superposition, holds many hypotheses at once, then collapses to the strongest one. Press run to watch the difference play out!!</p>
-
-    <div class="race-panel">
-      <div class="race-controls">
-        <div class="race-title">Simulation: pattern search across 8 candidate signals</div>
-        <button id="runBtn">Run comparison</button>
-      </div>
-
-      <svg viewBox="0 0 900 260" id="raceSvg">
-        <text x="0" y="20" class="lane-label">CLASSICAL</text>
-        <line x1="0" y1="34" x2="900" y2="34" stroke="#E4E0F5" stroke-width="1"/>
-        <g id="classicalLane"></g>
-
-        <text x="0" y="150" class="lane-label">QUANTUM</text>
-        <line x1="0" y1="164" x2="900" y2="164" stroke="#E4E0F5" stroke-width="1"/>
-        <g id="quantumLane"></g>
-      </svg>
-
-      <div class="status-row">
-        <span class="classical-status" id="classicalStatus">Idle</span>
-        <span class="quantum-status" id="quantumStatus">Idle</span>
-      </div>
-    </div>
-  </div>
-
   <div class="section" id="foundations">
-    <div class="section-label">02. Quantum foundations</div>
-    <h2>The building blocks, before we get to finance</h2>
-    <p class="section-body">Before applying any of this to stock data, here is the underlying physics and math this project rests on.</p>
+    <div class="section-label">00. Foundations</div>
+    <h2>The quantum ideas behind all five</h2>
+    <p class="section-body">Every application below leans on the same handful of quantum concepts. Here's the short version before we get into finance.</p>
 
     <div class="cards">
       <div class="card">
-        <div class="icon" style="background:#B8A2E8;">Qb</div>
+        <div class="icon" style="background:#8FA8D9;">Qb</div>
         <h4>Qubits</h4>
-        <p>The quantum version of a bit. Instead of being strictly 0 or 1, a qubit is described by a combination of both. Its exact state only decides when measured.</p>
+        <p>The basic unit. Unlike a classical bit stuck at 0 or 1, a qubit's state is a mix of both until measured.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:#8FC9BD;">Sp</div>
+        <div class="icon" style="background:#B8A2E8;">Sp</div>
         <h4>Superposition</h4>
-        <p>The property that lets a qubit hold a weighted blend of 0 and 1 at the same time, letting a circuit represent many scenarios at once instead of one at a time.</p>
+        <p>A qubit can hold a blend of 0 and 1 at once, so a circuit can represent many possibilities at the same time.</p>
       </div>
       <div class="card">
         <div class="icon" style="background:#8FA8D9;">En</div>
         <h4>Entanglement</h4>
-        <p>When two qubits become correlated so strongly that measuring one instantly tells you something about the other, no matter how they are processed afterward.</p>
+        <p>Correlating qubits lets a circuit capture relationships, like how two assets move together.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:#E0A183;">Gt</div>
-        <h4>Quantum gates and circuits</h4>
-        <p>Gates are the operations that rotate and entangle qubits, the quantum equivalent of AND/OR logic gates. Chaining gates together builds a quantum circuit, the quantum version of a program.</p>
+        <div class="icon" style="background:#8FC9BD;">Fm</div>
+        <h4>Feature maps</h4>
+        <p>Real numbers, like prices, get encoded into qubit rotation angles so a circuit can act on them.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:#B8A2E8;">Bs</div>
-        <h4>The Bloch sphere</h4>
-        <p>A way of visualizing a single qubit's state as a point on a sphere. The north and south poles are 0 and 1, and everywhere else represents a superposition between them.</p>
+        <div class="icon" style="background:#E0A183;">Vc</div>
+        <h4>Variational circuits</h4>
+        <p>A circuit with tunable knobs, trained the way a classical neural network is trained.</p>
       </div>
       <div class="card">
-        <div class="icon" style="background:#8FC9BD;">Sd</div>
-        <h4>Schmidt decomposition</h4>
-        <p>A math theorem that lets you break down the state of two entangled qubits into simpler, paired up pieces. It's how physicists formally measure how entangled a system actually is.</p>
+        <div class="icon" style="background:#B8A2E8;">Pe</div>
+        <h4>Phase estimation</h4>
+        <p>Quantum Amplitude Estimation, used below in Risk and Options, is built on the same Quantum Phase Estimation subroutine that powers Shor's algorithm (Shor, 1997), the result that first proved quantum computers can beat classical ones.</p>
       </div>
     </div>
 
     <div class="bloch-row">
       <div class="bloch-visual">
-        <svg viewBox="0 0 220 220" width="220" height="220">
+        <svg viewBox="0 0 220 220" width="200" height="200">
           <defs>
             <radialGradient id="sphereGrad" cx="35%" cy="30%" r="70%">
               <stop offset="0%" stop-color="#F3F1FB"/>
@@ -454,137 +493,208 @@ layout: null
           <ellipse cx="110" cy="110" rx="90" ry="26" fill="none" stroke="#B8A2FF" stroke-width="1" opacity="0.6"/>
           <ellipse cx="110" cy="110" rx="26" ry="90" fill="none" stroke="#B8A2FF" stroke-width="1" opacity="0.6"/>
           <line x1="110" y1="20" x2="110" y2="200" stroke="#3E3A52" stroke-width="1" opacity="0.4"/>
-          <circle cx="110" cy="20" r="4" fill="#8FE3D6"/>
-          <circle cx="110" cy="200" r="4" fill="#F2A87E"/>
-          <text x="118" y="16" font-size="11" fill="#3E3A52">|0></text>
-          <text x="118" y="212" font-size="11" fill="#3E3A52">|1></text>
-          <line x1="110" y1="110" x2="165" y2="70" stroke="#8B6FD9" stroke-width="2.5"/>
-          <circle cx="165" cy="70" r="5" fill="#8B6FD9"/>
+          <text x="118" y="16" font-size="11" fill="#3E3A52">|0> up day</text>
+          <text x="118" y="212" font-size="11" fill="#3E3A52">|1> down day</text>
+          <line id="qLine" x1="110" y1="110" x2="110" y2="30" stroke="#8B6FD9" stroke-width="2.5"/>
+          <circle id="qDot" cx="110" cy="30" r="6" fill="#8B6FD9"/>
         </svg>
       </div>
       <div class="bloch-text">
-        <h3 class="sub-heading">Reading the sphere</h3>
-        <p>The arrow is a single qubit's state. Straight up means a definite 0, straight down means a definite 1. Anywhere else on the surface is a valid superposition, with the angle determining the exact mix.</p>
-        <p>In this project, gate operations are rotations of this arrow around the sphere. Training a variational circuit means learning the right sequence of rotations for each qubit.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="concepts">
-    <div class="section-label">03. Applying it to finance</div>
-    <h2>Where these ideas actually get used</h2>
-    <p class="section-body">The foundational concepts above show up directly in how this project encodes and processes stock data.</p>
-
-    <div class="cards">
-      <div class="card">
-        <div class="icon" style="background:#8FA8D9;">Fm</div>
-        <h4>Quantum feature maps</h4>
-        <p>Classical stock data (price, volume, momentum) gets encoded into qubit rotation angles. This turns numbers into something a quantum circuit can act on.</p>
-      </div>
-      <div class="card">
-        <div class="icon" style="background:#B8A2E8;">Vc</div>
-        <h4>Variational quantum circuits</h4>
-        <p>A circuit with tunable knobs, trained the way a classical neural network is. It's adjusted step by step until it predicts price direction more accurately.</p>
-      </div>
-      <div class="card">
-        <div class="icon" style="background:#E0A183;">Qk</div>
-        <h4>Quantum kernels</h4>
-        <p>Instead of training a circuit directly, this measures how similar two days of market data are in a much richer, higher dimensional space than classical methods reach.</p>
-      </div>
-      <div class="card">
-        <div class="icon" style="background:#8FC9BD;">Dc</div>
-        <h4>Decoherence and the NISQ era</h4>
-        <p>Today's qubits lose their quantum state within microseconds due to noise. This is the honest ceiling on current hardware, and why results here are modest, not magic.</p>
-      </div>
-      <div class="card">
-        <div class="icon" style="background:#B8A2E8;">Sh</div>
-        <h4>Shor's algorithm</h4>
-        <p>Not used directly in this project, but the landmark result that proves quantum computers can outpace classical ones. It factors large numbers exponentially faster, which is also why it threatens today's encryption.</p>
-      </div>
-      <div class="card">
-        <div class="icon" style="background:#8FC9BD;">Tq</div>
-        <h4>Topological quantum field theory</h4>
-        <p>A more advanced, forward looking direction. Topological qubits are designed to resist noise structurally, which could eventually solve the decoherence problem above.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="pipeline">
-    <div class="section-label">04. How it actually works</div>
-    <h2>From stock chart to quantum circuit</h2>
-    <p class="section-body">Four steps turn raw price history into something a quantum computer can process, and eventually, a prediction.</p>
-
-    <div class="pipeline">
-      <div class="pstep">
-        <div class="pnum">01</div>
-        <div>
-          <h4>Encode the data</h4>
-          <p>Historical price, volume, and momentum indicators are normalized and mapped onto qubit rotation angles. This is the quantum feature map in action.</p>
-        </div>
-      </div>
-      <div class="pstep">
-        <div class="pnum">02</div>
-        <div>
-          <h4>Build the circuit</h4>
-          <p>A variational quantum circuit is assembled from layers of rotation and entangling gates, each with adjustable parameters. This is the qubit equivalent of a neural network's weights.</p>
-        </div>
-      </div>
-      <div class="pstep">
-        <div class="pnum">03</div>
-        <div>
-          <h4>Measure and compare</h4>
-          <p>The circuit is measured, collapsing superposition into a classical output, a predicted up or down. This is compared against the actual historical result.</p>
-        </div>
-      </div>
-      <div class="pstep">
-        <div class="pnum">04</div>
-        <div>
-          <h4>Train, hybrid style</h4>
-          <p>A classical optimizer adjusts the circuit's parameters based on the error. This loop between classical and quantum computation is how nearly all real QML runs today.</p>
+        <h3 style="font-size:18px; margin-bottom:8px;">Try it: encode a price move into a qubit</h3>
+        <p id="qubitReadout">Click a button to see how a day's price change becomes a rotation angle.</p>
+        <div class="bloch-buttons">
+          <button class="bloch-btn" onclick="setQubitState(15,'Strong up day')">Strong up day</button>
+          <button class="bloch-btn" onclick="setQubitState(65,'Mild up day')">Mild up day</button>
+          <button class="bloch-btn" onclick="setQubitState(115,'Mild down day')">Mild down day</button>
+          <button class="bloch-btn" onclick="setQubitState(165,'Strong down day')">Strong down day</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="section" id="results">
-    <div class="section-label">05. The results</div>
-    <h2>Did quantum win?</h2>
-    <p class="section-body">Not yet, and that's the more honest, more interesting answer.</p>
+  <div class="section" id="stock">
+    <div class="section-label">01. Stock price prediction</div>
+    <h2>Same data, two ways of searching it</h2>
+    <p class="section-body">A classical model tests patterns in price history sequentially, one hypothesis at a time. This project's quantum model is a Variational Quantum Classifier: each day's price data gets encoded into qubit rotation angles &theta;&#7522; = &pi;x&#7522;, producing a state |&psi;(&theta;)&rang; = U(&theta;)|0&rang;&#8855;&#8319; that holds every candidate pattern in superposition at once. Entangling gates between qubits let the circuit capture relationships between features, like momentum and volatility, that a classical model would otherwise have to search for separately (Schuld and Killoran, 2019).</p>
+
+    <div class="race-panel">
+      <div class="race-controls">
+        <div class="race-title">Searching 8 candidate signals</div>
+        <button class="run-btn" id="stockBtn">Run comparison</button>
+      </div>
+      <svg viewBox="0 0 900 200" id="stockSvg">
+        <text x="0" y="20" class="lane-label">CLASSICAL</text>
+        <line x1="0" y1="34" x2="900" y2="34" stroke="#C3DCF5" stroke-width="1"/>
+        <g id="stockClassicalLane"></g>
+        <text x="0" y="120" class="lane-label">QUANTUM</text>
+        <line x1="0" y1="134" x2="900" y2="134" stroke="#C3DCF5" stroke-width="1"/>
+        <g id="stockQuantumLane"></g>
+      </svg>
+      <div class="status-row">
+        <span class="status-classical" id="stockClassicalStatus">Idle</span>
+        <span class="status-quantum" id="stockQuantumStatus">Idle</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="portfolio">
+    <div class="section-label">02. Portfolio optimisation</div>
+    <h2>Finding the best mix of assets</h2>
+    <p class="section-body">Picking the best mix of assets grows exponentially harder as more assets are added, classically it means testing combinations one by one. This project's quantum approach reframes portfolio choice as a QUBO problem: minimise w&#8348;&Sigma;w &minus; &lambda;&mu;&#8348;w, mapped onto qubits so each possible portfolio becomes a measurement outcome. QAOA (the Quantum Approximate Optimization Algorithm) uses superposition to hold all 2&#8319; combinations at once, and entanglement between qubits encodes correlations between assets, alternating a cost step and a mixer step to steer that superposition toward the best combination (Kerenidis, Prakash and Szilágyi, 2019).</p>
+
+    <div class="race-panel">
+      <div class="race-controls">
+        <div class="race-title">Searching the risk / return space for 8 candidate portfolios</div>
+        <button class="run-btn" id="portfolioBtn">Run comparison</button>
+      </div>
+      <svg viewBox="0 0 900 220" id="portfolioSvg">
+        <text x="10" y="18" class="lane-label">CLASSICAL: testing one portfolio at a time</text>
+        <line x1="10" y1="30" x2="430" y2="30" stroke="#C3DCF5" stroke-width="1"/>
+        <line x1="10" y1="30" x2="10" y2="190" stroke="#C3DCF5" stroke-width="1"/>
+        <text x="10" y="205" font-size="12" fill="#3E3A52">risk &#8594;</text>
+        <text x="14" y="42" font-size="12" fill="#3E3A52">return &#8593;</text>
+        <text x="440" y="18" class="lane-label">QUANTUM: all portfolios in superposition at once</text>
+        <line x1="470" y1="30" x2="890" y2="30" stroke="#C3DCF5" stroke-width="1"/>
+        <line x1="470" y1="30" x2="470" y2="190" stroke="#C3DCF5" stroke-width="1"/>
+        <text x="470" y="205" font-size="12" fill="#3E3A52">risk &#8594;</text>
+        <text x="474" y="42" font-size="12" fill="#3E3A52">return &#8593;</text>
+        <g id="portfolioClassicalLane"></g>
+        <g id="portfolioQuantumLane"></g>
+      </svg>
+      <div class="status-row">
+        <span class="status-classical" id="portfolioClassicalStatus">Idle</span>
+        <span class="status-quantum" id="portfolioQuantumStatus">Idle</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="risk">
+    <div class="section-label">03. Risk analysis</div>
+    <h2>Fewer simulations, same confidence</h2>
+    <p class="section-body">Estimating risk classically means running thousands of random simulations, because Monte Carlo error only shrinks as O(1/&radic;N). Quantum Amplitude Estimation (QAE) reaches the same accuracy with O(1/N) samples instead, a quadratic speedup. QAE runs on the same Quantum Phase Estimation subroutine that powers Shor's algorithm, but instead of finding a number's factors, it estimates the probability of a "bad outcome", like a large loss (Orús, Mugel and Lizaso, 2019).</p>
+
+    <div class="bar-demo">
+      <div class="race-controls">
+        <div class="race-title">Samples needed for a reliable risk estimate</div>
+        <button class="run-btn" id="riskBtn">Run comparison</button>
+      </div>
+      <div class="bar-row">
+        <div class="bar-row-label"><span>Classical Monte Carlo</span><span id="riskClassicalCount">0 samples</span></div>
+        <div class="bar-track"><div class="bar-fill classical" id="riskClassicalBar"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-row-label"><span>Quantum amplitude estimation</span><span id="riskQuantumCount">0 samples</span></div>
+        <div class="bar-track"><div class="bar-fill quantum" id="riskQuantumBar"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="options">
+    <div class="section-label">04. Option pricing</div>
+    <h2>Pricing derivatives faster</h2>
+    <p class="section-body">Option prices are usually estimated the same way, with Monte Carlo simulation, since there's no clean formula for most real contracts. Pricing an option is really just estimating an expected payoff, so it maps directly onto Quantum Amplitude Estimation, the same algorithm used for Risk Analysis above, and inherits the same quadratic speedup: classical error shrinks as O(1/&radic;N), quantum error shrinks as O(1/N) (Orús, Mugel and Lizaso, 2019).</p>
+
+    <div class="race-panel">
+      <div class="race-controls">
+        <div class="race-title">Pricing error vs. number of simulated paths</div>
+        <button class="run-btn" id="optionsBtn">Run comparison</button>
+      </div>
+      <svg viewBox="0 0 900 220" id="optionsSvg">
+        <line x1="10" y1="70" x2="890" y2="70" stroke="#C3DCF5" stroke-width="1" stroke-dasharray="5 5"/>
+        <text x="895" y="74" font-size="12" fill="#3E3A52" text-anchor="end">target accuracy</text>
+        <line x1="10" y1="10" x2="10" y2="200" stroke="#C3DCF5" stroke-width="1"/>
+        <line x1="10" y1="200" x2="890" y2="200" stroke="#C3DCF5" stroke-width="1"/>
+        <text x="10" y="215" font-size="12" fill="#3E3A52">simulated paths &#8594;</text>
+        <polyline id="classicalCurve" points="" fill="none" stroke="#F2A87E" stroke-width="3"/>
+        <polyline id="quantumCurve" points="" fill="none" stroke="#3E9683" stroke-width="3"/>
+        <circle id="classicalMarker" cx="0" cy="0" r="0" fill="#F2A87E"/>
+        <circle id="quantumMarker" cx="0" cy="0" r="0" fill="#3E9683"/>
+      </svg>
+      <div class="status-row">
+        <span class="status-classical" id="optionsClassicalStatus">Idle</span>
+        <span class="status-quantum" id="optionsQuantumStatus">Idle</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="future">
+    <div class="section-label">05. Future of quantum finance</div>
+    <h2>Where this is realistically headed</h2>
+    <p class="section-body">None of this beats classical methods yet on real hardware, today's qubits are too few and too noisy (the NISQ era). But the roadmap is public, and finance is one of the industries watching closest (Herman et al., 2023).</p>
+
+    <div class="timeline">
+      <div class="tl-step now">
+        <div class="tl-dot"></div>
+        <h4>Now: NISQ era</h4>
+        <p>Small, noisy quantum computers. Good for research and small demos, not yet for beating classical finance tools.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <h4>Near-term: error mitigation</h4>
+        <p>Techniques to soften noise let slightly bigger problems run reliably, without needing full error correction yet.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <h4>Later: fault-tolerant quantum</h4>
+        <p>Enough error-corrected qubits to run algorithms like full quantum amplitude estimation at real financial scale.</p>
+      </div>
+    </div>
+
     <div class="honest">
-      <strong>Reality check:</strong> today's quantum hardware is small and noisy (the NISQ era: noisy, intermediate scale quantum). In this project, the quantum model didn't outperform the classical one on prediction accuracy. What it does show is the mechanism: how superposition, entanglement, and quantum feature maps change the shape of the search itself, and why researchers expect an advantage to emerge as hardware improves.
+      <strong>Bottom line:</strong> quantum machine learning in finance is a research bet, not a product yet. The value right now is understanding the mechanism, so when the hardware catches up, the ideas aren't a surprise. It's also worth knowing that the same phase estimation subroutine behind QAE is what makes Shor's algorithm a long-term threat to today's encryption, another reason banks are watching quantum computing closely, for opportunity and risk.
     </div>
   </div>
 
   <div class="section" id="watch">
     <div class="section-label">06. Watch</div>
     <h2>If you want to see it explained out loud</h2>
-    <p class="section-body">This video covers a lot of the same ground, how quantum machine learning is actually being explored in finance right now.</p>
+    <p class="section-body">A short video covering a lot of the same ground, how quantum machine learning is actually being explored in finance right now.</p>
     <div class="video-wrap">
       <iframe src="https://www.youtube.com/embed/3bDVHWdUWfE" title="Quantum Machine Learning for Finance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 
-  <footer>
-    <span class="muted">quantum.finance, mini project, 2026</span>
-    <a class="cta" href="#">Read the full write-up</a>
+  <div class="section" id="tldr">
+    <div class="section-label">07. TL;DR</div>
+    <h2>The five-line version</h2>
+    <div class="tldr-list">
+      <div class="tldr-item"><strong>Stock prediction:</strong> encode price data into qubits, use superposition and entanglement to search patterns in parallel.</div>
+      <div class="tldr-item"><strong>Portfolio optimisation:</strong> reframe as a QUBO problem, use QAOA to explore all combinations at once instead of one by one.</div>
+      <div class="tldr-item"><strong>Risk analysis:</strong> Quantum Amplitude Estimation reaches the same accuracy as Monte Carlo with far fewer samples, O(1/N) vs O(1/&radic;N).</div>
+      <div class="tldr-item"><strong>Option pricing:</strong> the same QAE speedup applies, since pricing is just estimating an expected payoff.</div>
+      <div class="tldr-item"><strong>Right now:</strong> none of this beats classical methods on real hardware yet, but the math and the roadmap are real.</div>
+    </div>
+  </div>
+
+  <div class="section" id="references">
+    <div class="section-label">08. References</div>
+    <h2>Sources</h2>
+    <div class="honest" style="border-left-color:var(--quantum-c);">
+      <p style="margin-bottom:10px;">Egger, D.J., Gambella, C., Marecek, J., McFaddin, S., Mevissen, M., Raymond, R., Simonetto, A., Woerner, S. and Yndurain, E. (2020) 'Quantum computing for finance: State-of-the-art and future prospects', <em>IEEE Transactions on Quantum Engineering</em>, 1, pp.1-24.</p>
+      <p style="margin-bottom:10px;">Herman, D., Googin, C., Liu, X., Sun, Y., Galda, A., Safro, I., Pistoia, M. and Alexeev, Y. (2023) 'Quantum computing for finance', <em>Nature Reviews Physics</em>, 5(8), pp.450-465.</p>
+      <p style="margin-bottom:10px;">Kerenidis, I., Prakash, A. and Szilágyi, D. (2019) 'Quantum algorithms for portfolio optimization', in <em>Proceedings of the 1st ACM Conference on Advances in Financial Technologies</em>. New York: ACM.</p>
+      <p style="margin-bottom:10px;">Nielsen, M.A. and Chuang, I.L. (2010) <em>Quantum computation and quantum information</em>. Cambridge: Cambridge University Press.</p>
+      <p style="margin-bottom:10px;">Orús, R., Mugel, S. and Lizaso, E. (2019) 'Quantum computing for finance: Overview and prospects', <em>Reviews in Physics</em>, 4, 100028.</p>
+      <p style="margin-bottom:10px;">Schuld, M. and Killoran, N. (2019) 'Quantum machine learning in feature Hilbert spaces', <em>Physical Review Letters</em>, 122, 040504.</p>
+      <p>Shor, P.W. (1997) 'Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer', <em>SIAM Journal on Computing</em>, 26(5), pp.1484-1509.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="byline">Written with lots of curiosity by <strong>Jaishmeet</strong> 💜</div>
+    <div class="socials">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">Email</a>
+    </div>
+    <div class="sign-off">quantum.finance, mini project, 2026. Thanks for reading!</div>
   </footer>
 
 </div>
 
 <script>
-const runBtn = document.getElementById('runBtn');
-const classicalLane = document.getElementById('classicalLane');
-const quantumLane = document.getElementById('quantumLane');
-const classicalStatus = document.getElementById('classicalStatus');
-const quantumStatus = document.getElementById('quantumStatus');
 const NS = "http://www.w3.org/2000/svg";
-
-function clearLanes(){
-  classicalLane.innerHTML = '';
-  quantumLane.innerHTML = '';
-  classicalStatus.textContent = 'Idle';
-  quantumStatus.textContent = 'Idle';
-}
 
 function makeCircle(x, y, r, fill, opacity){
   const c = document.createElementNS(NS, 'circle');
@@ -602,73 +712,288 @@ function makeLine(x1,y1,x2,y2,stroke,width,opacity){
   return l;
 }
 
-function runComparison(){
-  clearLanes();
-  runBtn.disabled = true;
-  runBtn.textContent = 'Running...';
+function setupRace(btnId, classicalLaneId, quantumLaneId, classicalStatusId, quantumStatusId, svgId, itemLabel){
+  const btn = document.getElementById(btnId);
+  const classicalLane = document.getElementById(classicalLaneId);
+  const quantumLane = document.getElementById(quantumLaneId);
+  const classicalStatus = document.getElementById(classicalStatusId);
+  const quantumStatus = document.getElementById(quantumStatusId);
 
-  const steps = 8;
-  const spacing = 860 / steps;
-  classicalStatus.textContent = 'Searching signal 1 / 8';
+  btn.addEventListener('click', function(){
+    classicalLane.innerHTML = '';
+    quantumLane.innerHTML = '';
+    btn.disabled = true;
+    btn.textContent = 'Running...';
 
-  for(let i=0;i<steps;i++){
+    const steps = 8;
+    const spacing = 860 / steps;
+    classicalStatus.textContent = `Testing ${itemLabel} 1 / 8`;
+
+    for(let i=0;i<steps;i++){
+      setTimeout(()=>{
+        const dot = makeCircle(20 + i*spacing, 34, 6, '#F2A87E', 0.15);
+        classicalLane.appendChild(dot);
+        requestAnimationFrame(()=>{
+          dot.style.transition = 'opacity 0.3s, r 0.3s';
+          dot.setAttribute('opacity', 1);
+          dot.setAttribute('r', 8);
+        });
+        classicalStatus.textContent = i < steps-1
+          ? `Testing ${itemLabel} ${i+2} / 8`
+          : `Best ${itemLabel} found, 8/8 checked one by one`;
+      }, i * 260);
+    }
+
+    quantumStatus.textContent = `Superposing all 8 ${itemLabel}s...`;
     setTimeout(()=>{
-      const dot = makeCircle(20 + i*spacing, 34, 6, '#F2A87E', 0.15);
-      classicalLane.appendChild(dot);
+      for(let i=0;i<steps;i++){
+        const x = 20 + i*spacing;
+        const line = makeLine(20, 134, x, 134, 'url(#qgrad-'+svgId+')', 2, 0);
+        quantumLane.appendChild(line);
+        const dot = makeCircle(x, 134, 6, '#8FE3D6', 0);
+        quantumLane.appendChild(dot);
+        requestAnimationFrame(()=>{
+          line.style.transition = 'opacity 0.4s';
+          dot.style.transition = 'opacity 0.4s, r 0.4s';
+          line.setAttribute('opacity', 0.4);
+          dot.setAttribute('opacity', 0.9);
+          dot.setAttribute('r', 7);
+        });
+      }
+    }, 100);
+
+    setTimeout(()=>{
+      quantumStatus.textContent = `All ${itemLabel}s explored in parallel, collapsed to the best match`;
+      const finalDot = makeCircle(880, 134, 10, '#8FE3D6', 0);
+      quantumLane.appendChild(finalDot);
+      requestAnimationFrame(()=>{
+        finalDot.style.transition = 'opacity 0.3s, r 0.3s';
+        finalDot.setAttribute('opacity', 1);
+      });
+    }, 900);
+
+    setTimeout(()=>{
+      btn.disabled = false;
+      btn.textContent = 'Run again';
+    }, 2400);
+  });
+
+  const svg = document.getElementById(svgId);
+  const defs = document.createElementNS(NS, 'defs');
+  defs.innerHTML = `<linearGradient id="qgrad-${svgId}" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#C9B6FF"/>
+    <stop offset="100%" stop-color="#8FE3D6"/>
+  </linearGradient>`;
+  svg.appendChild(defs);
+}
+
+setupRace('stockBtn','stockClassicalLane','stockQuantumLane','stockClassicalStatus','stockQuantumStatus','stockSvg','signal');
+
+// Portfolio: scatter plot showing risk/return search
+(function(){
+  const points = [
+    {x:60, y:150},{x:120,y:90},{x:180,y:170},{x:230,y:60},
+    {x:280,y:130},{x:330,y:40, best:true},{x:370,y:110},{x:410,y:170}
+  ];
+  const btn = document.getElementById('portfolioBtn');
+  const classicalLane = document.getElementById('portfolioClassicalLane');
+  const quantumLane = document.getElementById('portfolioQuantumLane');
+  const classicalStatus = document.getElementById('portfolioClassicalStatus');
+  const quantumStatus = document.getElementById('portfolioQuantumStatus');
+
+  btn.addEventListener('click', function(){
+    classicalLane.innerHTML = '';
+    quantumLane.innerHTML = '';
+    btn.disabled = true;
+    btn.textContent = 'Running...';
+    classicalStatus.textContent = 'Testing portfolio 1 / 8';
+
+    points.forEach((p, i)=>{
+      setTimeout(()=>{
+        const dot = makeCircle(p.x, p.y, p.best ? 6 : 5, p.best ? '#F2A87E' : '#F2A87E', 0.15);
+        classicalLane.appendChild(dot);
+        requestAnimationFrame(()=>{
+          dot.style.transition = 'opacity 0.3s, r 0.3s';
+          dot.setAttribute('opacity', p.best ? 1 : 0.6);
+          if(p.best) dot.setAttribute('r', 9);
+        });
+        classicalStatus.textContent = i < points.length-1
+          ? `Testing portfolio ${i+2} / 8`
+          : 'Best portfolio found, 8/8 checked one by one';
+      }, i * 260);
+    });
+
+    quantumStatus.textContent = 'Superposing all 8 portfolios...';
+    setTimeout(()=>{
+      points.forEach((p)=>{
+        const dot = makeCircle(460 + (p.x-10), p.y, 5, '#8FE3D6', 0);
+        quantumLane.appendChild(dot);
+        requestAnimationFrame(()=>{
+          dot.style.transition = 'opacity 0.4s';
+          dot.setAttribute('opacity', 0.35);
+        });
+      });
+    }, 100);
+
+    setTimeout(()=>{
+      quantumStatus.textContent = 'Collapsed straight to the best portfolio';
+      const best = points.find(p=>p.best);
+      const dot = makeCircle(460 + (best.x-10), best.y, 6, '#3E9683', 0);
+      quantumLane.appendChild(dot);
       requestAnimationFrame(()=>{
         dot.style.transition = 'opacity 0.3s, r 0.3s';
         dot.setAttribute('opacity', 1);
-        dot.setAttribute('r', 8);
+        dot.setAttribute('r', 10);
       });
-      classicalStatus.textContent = i < steps-1
-        ? `Searching signal ${i+2} / 8`
-        : 'Best pattern found, 8/8 checked sequentially';
-    }, i * 260);
-  }
+    }, 900);
 
-  quantumStatus.textContent = 'Superposing all 8 candidates...';
-  setTimeout(()=>{
-    for(let i=0;i<steps;i++){
-      const x = 20 + i*spacing;
-      const line = makeLine(20, 164, x, 164, 'url(#qgrad)', 2, 0);
-      quantumLane.appendChild(line);
-      const dot = makeCircle(x, 164, 6, '#8FE3D6', 0);
-      quantumLane.appendChild(dot);
-      requestAnimationFrame(()=>{
-        line.style.transition = 'opacity 0.4s';
-        dot.style.transition = 'opacity 0.4s, r 0.4s';
-        line.setAttribute('opacity', 0.4);
-        dot.setAttribute('opacity', 0.9);
-        dot.setAttribute('r', 7);
-      });
-    }
-  }, 100);
+    setTimeout(()=>{
+      btn.disabled = false;
+      btn.textContent = 'Run again';
+    }, 2200);
+  });
+})();
 
-  setTimeout(()=>{
-    quantumStatus.textContent = 'All candidates explored in parallel, collapsed to best match';
-    const finalDot = makeCircle(880, 164, 10, '#8FE3D6', 0);
-    quantumLane.appendChild(finalDot);
+function setupBarDemo(btnId, classicalBarId, quantumBarId, classicalCountId, quantumCountId, classicalMax, quantumMax, unit){
+  const btn = document.getElementById(btnId);
+  const classicalBar = document.getElementById(classicalBarId);
+  const quantumBar = document.getElementById(quantumBarId);
+  const classicalCount = document.getElementById(classicalCountId);
+  const quantumCount = document.getElementById(quantumCountId);
+
+  btn.addEventListener('click', function(){
+    btn.disabled = true;
+    classicalBar.style.width = '0%';
+    quantumBar.style.width = '0%';
+    classicalCount.textContent = '0 ' + unit;
+    quantumCount.textContent = '0 ' + unit;
+
     requestAnimationFrame(()=>{
-      finalDot.style.transition = 'opacity 0.3s, r 0.3s';
-      finalDot.setAttribute('opacity', 1);
-    });
-  }, 900);
+      setTimeout(()=>{
+        classicalBar.style.width = '100%';
+        quantumBar.style.width = (quantumMax / classicalMax * 100) + '%';
 
-  setTimeout(()=>{
-    runBtn.disabled = false;
-    runBtn.textContent = 'Run again';
-  }, 2400);
+        let start = null;
+        function step(ts){
+          if(!start) start = ts;
+          const progress = Math.min((ts - start) / 1100, 1);
+          classicalCount.textContent = Math.round(progress * classicalMax).toLocaleString() + ' ' + unit;
+          quantumCount.textContent = Math.round(progress * quantumMax).toLocaleString() + ' ' + unit;
+          if(progress < 1) requestAnimationFrame(step);
+          else btn.disabled = false;
+        }
+        requestAnimationFrame(step);
+      }, 50);
+    });
+  });
 }
 
-runBtn.addEventListener('click', runComparison);
+setupBarDemo('riskBtn','riskClassicalBar','riskQuantumBar','riskClassicalCount','riskQuantumCount', 10000, 100, 'samples');
 
-const svg = document.getElementById('raceSvg');
-const defs = document.createElementNS(NS, 'defs');
-defs.innerHTML = `<linearGradient id="qgrad" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0%" stop-color="#C9B6FF"/>
-  <stop offset="100%" stop-color="#8FE3D6"/>
-</linearGradient>`;
-svg.appendChild(defs);
+// Options: animated convergence curve
+(function(){
+  const btn = document.getElementById('optionsBtn');
+  const classicalCurve = document.getElementById('classicalCurve');
+  const quantumCurve = document.getElementById('quantumCurve');
+  const classicalMarker = document.getElementById('classicalMarker');
+  const quantumMarker = document.getElementById('quantumMarker');
+  const classicalStatus = document.getElementById('optionsClassicalStatus');
+  const quantumStatus = document.getElementById('optionsQuantumStatus');
+
+  // error(N) = k/sqrt(N) classical, k/N quantum. k=80, target error=1
+  // classical reaches target at N=6400, quantum at N=80 (log x-axis, N from 1 to 6400)
+  const k = 80, targetError = 1, maxN = 6400, startError = k / 1; // error at N=1 is 80 for both
+  function errorToY(e){
+    const clamped = Math.max(e, 0.3);
+    return 200 - 130 * (startError - clamped) / (startError - targetError);
+  }
+  function NtoX(n){
+    return 10 + (Math.log10(n) / Math.log10(maxN)) * 880;
+  }
+  function classicalY(n){ return errorToY(k / Math.sqrt(n)); }
+  function quantumY(n){ return errorToY(k / n); }
+
+  btn.addEventListener('click', function(){
+    btn.disabled = true;
+    classicalCurve.setAttribute('points','');
+    quantumCurve.setAttribute('points','');
+    classicalMarker.setAttribute('r', 0);
+    quantumMarker.setAttribute('r', 0);
+    classicalStatus.textContent = 'Simulating classical Monte Carlo...';
+    quantumStatus.textContent = 'Running quantum amplitude estimation...';
+
+    const totalSteps = 60;
+    let step = 0;
+    const timer = setInterval(()=>{
+      step++;
+      let cPoints = '', qPoints = '';
+      for(let i=1;i<=step;i++){
+        const n = Math.pow(maxN, i/totalSteps);
+        const x = NtoX(n);
+        cPoints += x + ',' + classicalY(n) + ' ';
+        qPoints += x + ',' + quantumY(n) + ' ';
+      }
+      classicalCurve.setAttribute('points', cPoints);
+      quantumCurve.setAttribute('points', qPoints);
+
+      if(step >= totalSteps){
+        clearInterval(timer);
+        classicalMarker.setAttribute('cx', NtoX(6400)); classicalMarker.setAttribute('cy', errorToY(1)); classicalMarker.setAttribute('r', 7);
+        quantumMarker.setAttribute('cx', NtoX(80)); quantumMarker.setAttribute('cy', errorToY(1)); quantumMarker.setAttribute('r', 7);
+        classicalStatus.textContent = 'Needed about 6,400 paths to hit target accuracy';
+        quantumStatus.textContent = 'Needed about 80 paths to hit the same target';
+        btn.disabled = false;
+        btn.textContent = 'Run again';
+      }
+    }, 1100/totalSteps);
+  });
+})();
+
+function setQubitState(thetaDeg, label){
+  const line = document.getElementById('qLine');
+  const dot = document.getElementById('qDot');
+  const readout = document.getElementById('qubitReadout');
+  const theta = thetaDeg * Math.PI / 180;
+  const R = 80;
+  const cx = 110, cy = 110;
+  const x = cx + R * Math.sin(theta);
+  const y = cy - R * Math.cos(theta);
+
+  line.style.transition = 'x2 0.6s, y2 0.6s';
+  dot.style.transition = 'cx 0.6s, cy 0.6s';
+  line.setAttribute('x2', x);
+  line.setAttribute('y2', y);
+  dot.setAttribute('cx', x);
+  dot.setAttribute('cy', y);
+
+  const p0 = Math.round(Math.cos(theta/2) * Math.cos(theta/2) * 100);
+  const p1 = 100 - p0;
+  readout.textContent = `${label}: encoded as a ${thetaDeg}° rotation. If measured now, ${p0}% chance it reads "up" and ${p1}% chance it reads "down".`;
+}
+
+// Side progress nav
+(function(){
+  const dots = document.querySelectorAll('.progress-dot');
+  dots.forEach(dot=>{
+    dot.addEventListener('click', ()=>{
+      const target = document.getElementById(dot.dataset.target);
+      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  const sections = Array.from(dots).map(d => document.getElementById(d.dataset.target)).filter(Boolean);
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        dots.forEach(d=>d.classList.remove('active'));
+        const match = document.querySelector(`.progress-dot[data-target="${entry.target.id}"]`);
+        if(match) match.classList.add('active');
+      }
+    });
+  }, {rootMargin: '-45% 0px -45% 0px', threshold: 0});
+
+  sections.forEach(s => observer.observe(s));
+})();
 </script>
 
 </body>
